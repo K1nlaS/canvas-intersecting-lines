@@ -78,6 +78,8 @@ const Canvas = () => {
   };
 
   const drawingHandler = (e) => {
+    if (e.nativeEvent.button !== 0) return;
+
     if (isDrawing === true) {
       setIsDrawing(false);
 
@@ -94,6 +96,17 @@ const Canvas = () => {
       end: mouse.current.mouseDownPos,
     };
     lines.current.push(line);
+  };
+
+  const rightClickHandler = (e) => {
+    e.preventDefault();
+
+    if (isDrawing) {
+      setIsDrawing(false);
+      lines.current.pop();
+      drawPreviousLinesAndDots();
+    }
+
   };
 
   const mouseMoveHandler = (e) => {
@@ -170,6 +183,7 @@ const Canvas = () => {
       <canvas
         onMouseUp={drawingHandler}
         onMouseMove={mouseMoveHandler}
+        onContextMenu={rightClickHandler}
         ref={canvasRef}
       />
     </CANVAS_CONTAINER>
