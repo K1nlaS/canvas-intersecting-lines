@@ -50,6 +50,7 @@ const Canvas = () => {
     ctx.lineCap = "round";
     ctx.strokeStyle = "black";
     ctx.lineWidth = 1;
+    ctx.save();
 
     contextRef.current = ctx;
   }, []);
