@@ -1,7 +1,7 @@
 # canvas-intersecting-lines
 
 ## About
-A simple application that lets you draw straight lines and highligts their interesctions for you.
+A simple application that lets you draw straight lines and highlights their intersections for you.
 
 ## How to use
 - Left click to choose a starting point of the line
